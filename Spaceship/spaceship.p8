@@ -27,8 +27,12 @@ function _update()
  for b in all(bullets) do
   b.x+=b.dx
   b.y+=b.dy
+  if b.x < 0 or b.x > 128 or
+   b.y < 0 or b.y > 128 then
+   del(bullets,b)
+  end
  end
- 
+
  if(t%6<3) then
   ship.sp=1
  else
@@ -44,6 +48,7 @@ end
 
 function _draw()
  cls()
+ print(#bullets,9)
  spr(ship.sp,ship.x,ship.y)
  for b in all(bullets) do
   spr(b.sp,b.x,b.y)
