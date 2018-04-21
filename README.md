@@ -13,4 +13,5 @@ PICO-8 can be found here: https://www.lexaloffle.com/pico-8.php
 
 ## Spaceship
 - A simple spaceship shooting game
+- Considered Feature complete
 - Based on the tutorial at: https://ztiromoritz.github.io/pico-8-shooter/
