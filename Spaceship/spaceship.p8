@@ -82,7 +82,6 @@ function abs_box(s)
 end 
  
 function coll(a,b)
- -- todo
  local box_a = abs_box(a)
  local box_b = abs_box(b)
 
@@ -94,7 +93,6 @@ function coll(a,b)
  end
  
  return true
-
 end
 
 function explode(x,y)
