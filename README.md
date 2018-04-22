@@ -14,4 +14,7 @@ PICO-8 can be found here: https://www.lexaloffle.com/pico-8.php
 ## Spaceship
 - A simple spaceship shooting game
 - Considered Feature complete
+-- Features music, a Game Over screen, the ability to restart, scoring, and health.
+-- Optional feature: immportality, confiugrable via code
 - Based on the tutorial at: https://ztiromoritz.github.io/pico-8-shooter/
+- To configure immortality, change imm=false to imm=true in the ship config
