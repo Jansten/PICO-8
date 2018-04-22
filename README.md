@@ -3,14 +3,6 @@ All of my projects involving the PICO-8 fantasy console.
 
 PICO-8 can be found here: https://www.lexaloffle.com/pico-8.php
 
-## Judy (Tutorial Game)
-- Based on the tutorial at: https://thenewstack.io/retro-game-pico-8-basics/
-- A default tutorial game, which will likely be hilarously terrible.  Gotta start somewhere!
-
-## PinkCirc
-- A pink circle that moves around the screen.
-- Demo from the PICO-8 readme
-
 ## Spaceship
 - A simple spaceship shooting game
 - Considered Feature complete
@@ -18,3 +10,10 @@ PICO-8 can be found here: https://www.lexaloffle.com/pico-8.php
 - Optional feature: immportality, confiugrable via code
 - Based on the tutorial at: https://ztiromoritz.github.io/pico-8-shooter/
 - To configure immortality, change imm=false to imm=true in the ship config
+
+## Judy (Tutorial Game)
+- Based on the tutorial at: https://thenewstack.io/retro-game-pico-8-basics/
+
+## PinkCirc
+- A pink circle that moves around the screen.
+- Demo from the PICO-8 readme
