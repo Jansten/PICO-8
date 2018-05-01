@@ -17,3 +17,6 @@ PICO-8 can be found here: https://www.lexaloffle.com/pico-8.php
 ## PinkCirc
 - A pink circle that moves around the screen.
 - Demo from the PICO-8 readme
+
+## Paddle
+- A short tutorial based on the simple Breakout-style game.  Featured in the first PICO-8 fanzine.
