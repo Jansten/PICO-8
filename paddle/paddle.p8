@@ -10,6 +10,13 @@ pady=122
 padw=24
 padx=4
 
+-- create ball
+ballx=64
+bally=64
+ballsize=3
+ballxdir=5
+ballydir=3
+
 function movepaddle()
 -- move the paddle with btn 1 and 2
  if btn(0) then
@@ -19,9 +26,59 @@ function movepaddle()
  end
 end
 
+function moveball()
+-- make the ball move
+ ballx+=ballxdir
+ bally+=ballydir
+end
+
+function losedeadball()
+-- recovers a ball after it flies off the screen
+ if bally>128 then
+  sfx(3)
+  bally=24
+ end
+end
+
+function bounceball()
+-- make the ball bounce off the edges of the screen
+
+-- left side of the screen:
+ if ballx<ballsize then
+  ballxdir=-ballxdir
+  sfx(0)
+ end
+ 
+-- right side of screen:
+ if ballx>128-ballsize then
+  ballxdir=-ballxdir
+  sfx(0)
+ end
+ 
+-- top of the screen: 
+ if bally<ballsize then
+  ballydir=-ballydir
+  sfx(0)
+ end
+end 
+
+-- bounce the ball off of the paddle
+function bouncepaddle()
+ if ballx>=padx and
+  ballx<=padx+padw and
+  bally>pady then
+  sfx(0)
+  ballydir=-ballydir
+ end
+end
+
 function _update()
 -- built-in function, called 30 times a second (30 fps)
  movepaddle()
+ bounceball()
+ bouncepaddle()
+ moveball()
+ losedeadball()
 end
 
 function _draw()
@@ -30,6 +87,9 @@ function _draw()
 
 -- draw the paddle
  rectfill(padx,pady,padx+padw,padx+pady,15)
+ 
+-- draw the ball
+ circfill(ballx,bally,ballsize,15) 
 end
 __label__
 33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
@@ -161,3 +221,8 @@ __label__
 3333fffffffffffffffffffffffff333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
 33333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
 
+__sfx__
+00010000340502a00022000190001a000180000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+0006000030050280501f05017050110500c0500905009050000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
