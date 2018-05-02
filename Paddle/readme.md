@@ -23,3 +23,6 @@
 
 ## Unfinished
 - Game Over screen music never really worked.  The first note would drone on forever.  I suspect this could be fixed, but I'm not fluent enough in PICO-8 to resolve.  Any suggestions are very welcome!
+
+## Bugs
+- Paddle moves off the left side of the screen, but flips over first.  
