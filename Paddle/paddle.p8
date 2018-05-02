@@ -15,7 +15,7 @@ end
 
 function titleinit()
  --change mode to say we're in the menu
- music(-1,300) --stop the game over music
+ music(-1,300) --stop any currently running music
  cls()
  mode=0
 end
@@ -114,7 +114,7 @@ end
 function _update()
  if (mode==0) then --title screen mode
   titleupdate()
- elseif (mode==1)
+ elseif (mode==1) then
    gameupdate()
   else
    gameoverupdate()
@@ -141,7 +141,7 @@ function gameoverupdate()
  ballydir=0
  ballxdir=0
  cls()
- music(0)
+ --music(0) -- game over music, doesn't work
  print("- game over -",30,50,4)
  print("press <action> to restart",10,56,4)
  if btnp(4) then titleinit() end
