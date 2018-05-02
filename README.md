@@ -15,7 +15,6 @@ PICO-8 can be found here: https://www.lexaloffle.com/pico-8.php
 - A short tutorial based on the simple Breakout-style game.  Featured in the first PICO-8 fanzine.
 - Additionally, a testbed for creating a title screen for a game (currently working)
 - While simple, considered feature complete
-- Lesson learned: Music/SFX don't work in the Game Over state because it's not part of _update.  As a result, only the first note of the song/SFX plays as a single, droning note.  To fix, a third mode would likely have to be added.
 
 ## Judy (Tutorial Game)
 - Based on the tutorial at: https://thenewstack.io/retro-game-pico-8-basics/
