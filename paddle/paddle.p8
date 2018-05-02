@@ -1,28 +1,43 @@
 pico-8 cartridge // http://www.pico-8.com
 version 16
 __lua__
--- paddle
+-- paddle v2
 -- by michael "boston" hannon
 
--- setting overall variables
--- create paddle
-padx=52
-pady=122
-padw=24
-padx=4
+function _init()
+ cls()
+ titleinit()
+end
 
--- create ball
-ballx=64
-bally=64
-ballsize=3
-ballxdir=5
-ballydir=3
+function titleinit()
+ --change mode to say we're in the menu
+ cls()
+ mode=0
+end
 
--- initializing score
-score=0
+function gameinit()
+  -- change mode to say we're in the game itself
+  mode=1
+  -- setting overall variables
+ -- create paddle
+ padx=52
+ pady=122
+ padw=24
+ padx=4
 
--- initializing health
-lives=3
+ -- create ball
+ ballx=64
+ bally=64
+ ballsize=3
+ ballxdir=5
+ ballydir=3
+
+ -- initializing score
+ score=0
+
+ -- initializing health
+ lives=3
+end
 
 function movepaddle()
 -- move the paddle with btn 1 and 2
@@ -49,10 +64,7 @@ function losedeadball()
    lives-=1
   else
    -- game over
-   ballydir=0
-   ballxdir=0
-   bally=64
-   sfx(1)
+   gameover()
   end
  end
 end
@@ -90,17 +102,38 @@ function bouncepaddle()
  end
 end
 
-function _update()
--- built-in function, called 30 times a second (30 fps)
- movepaddle()
- bounceball()
- bouncepaddle()
- moveball()
- losedeadball()
+function gameover()
+ --stop the ball from moving
+ ballydir=0
+ ballxdir=0
+ cls()
+ --sfx(1) --play game over sfx, not working
+ print("- game over -",30,50,4)
+ print("press <action> to restart",10,56,4)
+ if btnp(4) then titleinit() end
 end
 
-function _draw()
--- clear the screen, draw a background
+function _update()
+ if (mode==0) then --title screen mode
+  titleupdate()
+ else
+   gameupdate()
+ end
+end
+
+function titleupdate()
+ print("paddle v2",35,50,4)
+ print("by michael \"boston\" hannon",10,56,4)
+ print("press <action> button",13,98,12)
+ print("to start game",30,104,12)
+ if btnp(4) then
+  gameinit()
+ end
+end
+
+function gameupdate()
+ -- clear the screen, draw a background
+ cls()
  rectfill(0,0,128,128,3)
 
 -- draw the lives you currently have
@@ -116,7 +149,15 @@ end
  
 -- draw the ball
  circfill(ballx,bally,ballsize,15) 
+
+ movepaddle()
+ bounceball()
+ bouncepaddle()
+ moveball()
+ losedeadball()
 end
+
+
 __gfx__
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 08808800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
