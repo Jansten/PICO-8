@@ -15,4 +15,4 @@
 - Because the Game Over screen originally sat outside the update function, the outro music didn't fully play
 
 ## TODO
-- Move the Game Over screen to another mode (Mode 2) to ensure that the Game Over song properly plays
+- Move the Game Over screen to another mode (Mode 2) to ensure that the Game Over song properly plays 
