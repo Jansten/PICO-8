@@ -73,7 +73,7 @@ function losedeadball()
    lives-=1
   else
    -- game over
-   gameover()
+   mode=2
   end
  end
 end
@@ -111,23 +111,13 @@ function bouncepaddle()
  end
 end
 
-function gameover()
- --now that all lives have been lost, stop the game
-
- --stop the ball from moving, draw game over elements
- ballydir=0
- ballxdir=0
- cls()
- print("- game over -",30,50,4)
- print("press <action> to restart",10,56,4)
- if btnp(4) then titleinit() end
-end
-
 function _update()
  if (mode==0) then --title screen mode
   titleupdate()
- else
+ elseif (mode==1)
    gameupdate()
+  else
+   gameoverupdate()
  end
 end
 
@@ -141,6 +131,20 @@ function titleupdate()
  if btnp(4) then
   gameinit()
  end
+end
+
+function gameoverupdate()
+ --game over functionality
+ --now that all lives have been lost, stop the game
+
+ --stop the ball from moving, draw game over elements
+ ballydir=0
+ ballxdir=0
+ cls()
+ music(0)
+ print("- game over -",30,50,4)
+ print("press <action> to restart",10,56,4)
+ if btnp(4) then titleinit() end
 end
 
 function gameupdate()
