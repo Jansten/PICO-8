@@ -15,6 +15,7 @@ PICO-8 can be found here: https://www.lexaloffle.com/pico-8.php
 - A short tutorial based on the simple Breakout-style game.  Featured in the first PICO-8 fanzine.
 - Additionally, a testbed for creating a title screen for a game (currently working)
 - While simple, considered feature complete
+- Please see README in Paddle directory for full notes and lessons learned
 
 ## Judy (Tutorial Game)
 - Based on the tutorial at: https://thenewstack.io/retro-game-pico-8-basics/
