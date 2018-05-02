@@ -21,3 +21,4 @@ PICO-8 can be found here: https://www.lexaloffle.com/pico-8.php
 ## Paddle
 - A short tutorial based on the simple Breakout-style game.  Featured in the first PICO-8 fanzine.
 - Additionally, a testbed for creating a title screen for a game (currently working)
+- While simple, considered feature complete
