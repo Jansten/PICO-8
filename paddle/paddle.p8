@@ -114,9 +114,9 @@ function gameover()
  ballydir=0
  ballxdir=0
  cls()
- -- music(-1,300) --play game over music, not working
  print("- game over -",30,50,4)
  print("press <action> to restart",10,56,4)
+-- music(0,300) --game over music, not working
  if btnp(4) then titleinit() end
 end
 
