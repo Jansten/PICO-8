@@ -11,14 +11,14 @@ PICO-8 can be found here: https://www.lexaloffle.com/pico-8.php
 - Based on the tutorial at: https://ztiromoritz.github.io/pico-8-shooter/
 - To configure immortality, change imm=false to imm=true in the ship config
 
+## Paddle
+- A short tutorial based on the simple Breakout-style game.  Featured in the first PICO-8 fanzine.
+- Additionally, a testbed for creating a title screen for a game (currently working)
+- While simple, considered feature complete
+
 ## Judy (Tutorial Game)
 - Based on the tutorial at: https://thenewstack.io/retro-game-pico-8-basics/
 
 ## PinkCirc
 - A pink circle that moves around the screen.
 - Demo from the PICO-8 readme
-
-## Paddle
-- A short tutorial based on the simple Breakout-style game.  Featured in the first PICO-8 fanzine.
-- Additionally, a testbed for creating a title screen for a game (currently working)
-- While simple, considered feature complete
