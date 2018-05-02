@@ -4,6 +4,9 @@
 - A simple paddle-style game
 - Based on the tutorial from the first PICO-8 fanzine
 
+## Versions
+- v2, 2018-05-02, considered complete/final
+
 ## Goals
 - Impliment base game - DONE
 - Add title screen - DONE
@@ -16,4 +19,7 @@
 
 ## TODO
 - Move the Game Over screen to another mode (Mode 2) - DONE
-- Ensure Game Over music works in Game Over mode 
+- Ensure Game Over music works in Game Over mode  - PARTIAL
+
+## Unfinished
+- Game Over screen music never really worked.  The first note would drone on forever.  I suspect this could be fixed, but I'm not fluent enough in PICO-8 to resolve.  Any suggestions are very welcome!
