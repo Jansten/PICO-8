@@ -5,6 +5,7 @@ __lua__
 -- by michael "boston" hannon
 
 function _init()
+-- initial program setup
  cls()
  titleinit()
 end
@@ -18,6 +19,7 @@ end
 function gameinit()
   -- change mode to say we're in the game itself
   mode=1
+
   -- setting overall variables
  -- create paddle
  padx=52
@@ -41,6 +43,7 @@ end
 
 function movepaddle()
 -- move the paddle with btn 1 and 2
+
  if btn(0) then
   padx-=3
  elseif btn(1) then
@@ -50,12 +53,14 @@ end
 
 function moveball()
 -- make the ball move
+
  ballx+=ballxdir
  bally+=ballydir
 end
 
 function losedeadball()
 -- recover ball once it flies off the bottom of the screen
+
  if bally>128-ballsize then
   if lives>0 then
    -- next life
@@ -103,6 +108,8 @@ function bouncepaddle()
 end
 
 function gameover()
+ --now that all lives have been lost, stop the game
+
  --stop the ball from moving
  ballydir=0
  ballxdir=0
@@ -122,8 +129,10 @@ function _update()
 end
 
 function titleupdate()
- print("paddle v2",35,50,4)
- print("by michael \"boston\" hannon",10,56,4)
+--draw the title screen
+
+ print("paddle v2",38,50,8)
+ print("by michael \"boston\" hannon",10,56,8)
  print("press <action> button",13,98,12)
  print("to start game",30,104,12)
  if btnp(4) then
@@ -132,6 +141,8 @@ function titleupdate()
 end
 
 function gameupdate()
+ --the actual game code
+
  -- clear the screen, draw a background
  cls()
  rectfill(0,0,128,128,3)
@@ -156,7 +167,6 @@ end
  moveball()
  losedeadball()
 end
-
 
 __gfx__
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
