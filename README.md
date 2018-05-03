@@ -3,6 +3,9 @@ All of my projects involving the PICO-8 fantasy console.
 
 PICO-8 can be found here: https://www.lexaloffle.com/pico-8.php
 
+## Skull Dodger
+- An original game, where you dodge skulls.
+
 ## Spaceship
 - A simple spaceship shooting game
 - Based on the tutorial at: https://ztiromoritz.github.io/pico-8-shooter/
