@@ -7,6 +7,10 @@ __lua__
 function _init()
  --initial program setup
  cls()
+
+frame=0 --track what frame we're on
+skull_freq=10 --how often skulls are spawned
+
  titleinit()
 end
 
