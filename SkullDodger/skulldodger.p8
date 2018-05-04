@@ -109,11 +109,10 @@ spr(3,playerx,playery)
 print("frame:",0,0,7)
 print(frame,24,0)
 
-score=frame/30 --bug: displays decimals
+score=flr(frame/30) --bug: displays decimals
 
 print("score: ",90,0,7)
 print(score,115,0)
-
 
  --for debugging: press action to fail game
  if btnp(4) then mode=2 end
