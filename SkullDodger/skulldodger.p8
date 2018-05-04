@@ -7,15 +7,22 @@ __lua__
 function _init()
  --initial program setup
 
- --set variables for player size
- playerwidth=5
- playerheight=5
+frame=0 --track what frame we're on
+score=0 --track current game score
+highscore=0 --track high score across one session
+
+ --set variables for player data
+ player_width=5
+ player_height=5
+ player_speed=2
+
+ --set variables for enemy data
+ skull_size={5,5}
+ skull_freq=10 --how often skulls are spawned
+ skull_speed=3 --how fast skulls move
+ skulls={} --skulls to display on screen
 
  cls()
-
-frame=0 --track what frame we're on
-skull_freq=10 --how often skulls are spawned
-
  titleinit()
 end
 
@@ -31,6 +38,7 @@ function gameinit()
  mode=1
 
  --setting overall variables
+frame=0
 
  --set variables for player position, middle of the screen
  playerx=64
@@ -72,27 +80,45 @@ end
 function gameupdate()
  --the game code
 
- if btn(0) then playerx-=1 end
- if btn(1) then playerx+=1 end
- if btn(2) then playery-=1 end
- if btn(3) then playery+=1 end 
+ if btn(0) then playerx-=player_speed end
+ if btn(1) then playerx+=player_speed end
+ if btn(2) then playery-=player_speed end
+ if btn(3) then playery+=player_speed end 
 
  --make sure player doesn't leave play field
  if playerx <= 0 then playerx=0 end
- if playerx >= 127-playerwidth then playerx=127-playerwidth end
+ if playerx >= 127-player_width then playerx=127-player_width end
  if playery <= 0 then playery=0 end
- if playery >= 127-playerwidth then playery=127-playerwidth end
+ if playery >= 127-player_width then playery=127-player_width end
 
+ if(frame%skull_freq==0) then
+  add(skull,{rnd(128-skull_size[1], -skull_size[2])})
+ end
+
+ for each in all(skulls) do
+  spr(0, each[1], each[2])
+ end
 
  --for debugging: clear screen, write simple text
  cls()
- print("this is a game",38,50,7)
- print("<action> to get game over",10,56,7)
+ --print("this is a game",38,50,7)
+ print("<action> to get game over",10,122,7)
 
 spr(3,playerx,playery)
 
+print("frame:",0,0,7)
+print(frame,24,0)
+
+score=frame/30 --bug: displays decimals
+
+print("score: ",90,0,7)
+print(score,115,0)
+
+
  --for debugging: press action to fail game
  if btnp(4) then mode=2 end
+
+ frame+=1
 end
 
 __gfx__
