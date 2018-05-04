@@ -15,11 +15,12 @@ highscore=0 --track high score across one session
  player_width=5
  player_height=5
  player_speed=2
+ player_size={5,5}
 
  --set variables for enemy data
  skull_size={5,5}
  skull_freq=10 --how often skulls are spawned
- skull_speed=3 --how fast skulls move
+ skull_speed=1 --how fast skulls move
  skulls={} --skulls to display on screen
 
  cls()
@@ -51,7 +52,7 @@ function _update()
  elseif(mode==1) then --playable game
   gameupdate()
  else
-   gameoverupdate()
+   gameoverupdate() --game over
  end
 end
 
@@ -78,7 +79,9 @@ function gameoverupdate()
 end
 
 function gameupdate()
- --the game code
+ --the game code, updates every frame, 30fps
+
+ cls() --clear screen every frame
 
  if btn(0) then playerx-=player_speed end
  if btn(1) then playerx+=player_speed end
@@ -91,16 +94,21 @@ function gameupdate()
  if playery <= 0 then playery=0 end
  if playery >= 127-player_width then playery=127-player_width end
 
- if(frame%skull_freq==0) then
-  add(skull,{rnd(128-skull_size[1], -skull_size[2])})
- end
+ --if(frame%skull_freq==0) then
+ -- add(skull,{rnd(128-skull_size[1], -skull_size[2])})
+ --end
 
- for each in all(skulls) do
-  spr(0, each[1], each[2])
- end
+ --for drop in all(skulls) do
+  --drop[2] += skull_speed
+  --spr(0, drop[1], drop[2])
+   --if drop[2] > 128 then
+   --del(skull, drop)
+  --end  
+ -- end
+
+add(skulls, {rnd(128 - skull_size[1], -skull_size[2])})
 
  --for debugging: clear screen, write simple text
- cls()
  --print("this is a game",38,50,7)
  print("<action> to get game over",10,122,7)
 
