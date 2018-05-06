@@ -122,8 +122,7 @@ end
     )
    then
      mode=2
- end
-
+  end
  end
 
  --for debugging: clear screen, write simple text
@@ -131,13 +130,21 @@ end
 
 spr(3,playerx,playery)
 
-print("frame:",0,0,7)
-print(frame,24,0)
+--for debugging only: display the current frame
+--print("frame:",0,0,7)
+--print(frame,24,0)
 
 score=flr(frame/30)
 
-print("score: ",90,0,7)
-print(score,115,0)
+if highscore <= score then
+ highscore = score
+end
+
+print("score: ",0,0,7)
+print(score,24,0)
+
+print("high score: ",0,6,7)
+print(highscore,44,6)
 
  for drop in all(skulls) do
   spr(0,drop[1],drop[2])
