@@ -36,7 +36,8 @@ end
 
 
 function collided(enemy_coord, enemy_size, player_coord, player_size)
- --see if player sprite came in contact with enemy sprite
+ --see if a sprite came in contact with another sprite
+ --todo: change variable names to make them more generic
  return
   enemy_coord[1] < player_coord[1] + player_size[1] and
   player_coord[1] < enemy_coord[1] + enemy_size[1] and

@@ -19,6 +19,7 @@
 - Create player character sprite
 - Create some sort of sprite map for the play field
 - Create and impliment screen-clearing bomb item (sprite has already been created)
+- Change variable names for collided() to make them more generic, as this function is being reused
 
 ## Bugs
 - Player sprite's collision area isn't the exact size of the sprite.
