@@ -37,6 +37,7 @@ function collided(c1, s1, c2, s2)
   c1[2] < c2[2] + s2[2] and
   c2[2] < c1[2] + s1[2]
 end
+
 function titleinit()
  --change mode to say we're in the menu
  music(-1,300) --stop any currently running music
@@ -95,7 +96,7 @@ function gameupdate()
 
  cls() --clear screen every frame
 
-coords={playerx, playery}
+coords={playerx, playery} --set coordinates for collision
 
  if btn(0) then playerx-=player_speed end
  if btn(1) then playerx+=player_speed end
@@ -126,7 +127,6 @@ end
  end
 
  --for debugging: clear screen, write simple text
- --print("this is a game",38,50,7)
  print("<action> to get game over",10,122,7)
 
 spr(3,playerx,playery)
