@@ -29,13 +29,13 @@ highscore=0 --track high score across one session
 end
 
 
-function collided(c1, s1, c2, s2)
+function collided(enemy_coord, enemy_size, player_coord, player_size)
  --see if player sprite came in contact with enemy sprite
  return
-  c1[1] < c2[1] + s2[1] and
-  c2[1] < c1[1] + s1[1] and
-  c1[2] < c2[2] + s2[2] and
-  c2[2] < c1[2] + s1[2]
+  enemy_coord[1] < player_coord[1] + player_size[1] and
+  player_coord[1] < enemy_coord[1] + enemy_size[1] and
+  enemy_coord[2] < player_coord[2] + player_size[2] and
+  player_coord[2] < enemy_coord[2] + enemy_size[2]
 end
 
 function titleinit()
