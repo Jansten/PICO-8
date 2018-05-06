@@ -126,7 +126,8 @@ end
  end
 
  --for debugging: clear screen, write simple text
- print("<action> to get game over",10,122,7)
+ --cls()
+ -- print("<action> to get game over",10,122,7)
 
 spr(3,playerx,playery)
 
