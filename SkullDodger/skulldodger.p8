@@ -16,6 +16,7 @@ highscore=0 --track high score across one session
  player_height=5
  player_speed=2
  player_size={5,5}
+ coords={} --tracks current player position
 
  --set variables for enemy data
  skull_size={5,5}
@@ -27,6 +28,15 @@ highscore=0 --track high score across one session
  titleinit()
 end
 
+
+function collided(c1, s1, c2, s2)
+ --see if player sprite came in contact with enemy sprite
+ return
+  c1[1] < c2[1] + s2[1] and
+  c2[1] < c1[1] + s1[1] and
+  c1[2] < c2[2] + s2[2] and
+  c2[2] < c1[2] + s1[2]
+end
 function titleinit()
  --change mode to say we're in the menu
  music(-1,300) --stop any currently running music
@@ -72,6 +82,8 @@ end
 function gameoverupdate()
  --game over functionality
 
+skulls={} --reset number of skulls on screen
+
  cls()
  print("- game over -",30,50,4)
  print("press <action> to restart",10,56,4)
@@ -82,6 +94,8 @@ function gameupdate()
  --the game code, updates every frame, 30fps
 
  cls() --clear screen every frame
+
+coords={playerx, playery}
 
  if btn(0) then playerx-=player_speed end
  if btn(1) then playerx+=player_speed end
@@ -102,7 +116,13 @@ end
   drop[2] += skull_speed
    if drop[2] > 128 then
     del(skull,drop)
-   end
+   elseif collided(
+   drop, skull_size, coords, player_size
+    )
+   then
+     mode=2
+ end
+
  end
 
  --for debugging: clear screen, write simple text
