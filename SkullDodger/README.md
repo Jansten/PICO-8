@@ -22,3 +22,4 @@
 
 ## Bugs
 - Player sprite's collision area isn't the exact size of the sprite.
+- Bomb does not respect collision rules, so it does not clear the screen

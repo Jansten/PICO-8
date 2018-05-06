@@ -24,6 +24,12 @@ highscore=0 --track high score across one session
  skull_speed=1 --how fast skulls move
  skulls={} --skulls to display on screen
 
+ --set variables for screen-clearing bomb data
+ bomb_freq=25
+ bomb_speed=1
+ bomb_size={5,5}
+ bombs={}
+
  cls()
  titleinit()
 end
@@ -125,6 +131,22 @@ end
   end
  end
 
+ if(frame % bomb_freq==0) then
+  add(bombs,{rnd(128 - bomb_size[1]),( - bomb_size[2])})
+ end
+
+ for pickup in all(bombs) do
+  pickup[2] += bomb_speed
+   if pickup[2] > 128 then
+    del(bombs,pickup)
+    elseif collided(
+       pickup, bomb_size, coords, player_size
+     )
+     then
+       cls() --clear screen, likely not what i want
+      end
+    end
+
  --for debugging: clear screen, write simple text
  print("<action> to get game over",10,122,7)
 
@@ -148,6 +170,10 @@ print(highscore,44,6)
 
  for drop in all(skulls) do
   spr(0,drop[1],drop[2])
+ end
+
+ for pickup in all(bombs) do
+  spr(2,pickup[1],pickup[2])
  end
 
  --for debugging: press action to fail game
