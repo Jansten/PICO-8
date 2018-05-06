@@ -19,7 +19,7 @@ highscore=0 --track high score across one session
 
  --set variables for enemy data
  skull_size={5,5}
- skull_freq=3 --how often skulls are spawned
+ skull_freq=5 --how often skulls are spawned
  skull_speed=1 --how fast skulls move
  skulls={} --skulls to display on screen
 
