@@ -20,3 +20,6 @@ PICO-8 can be found here: https://www.lexaloffle.com/pico-8.php
 
 ## Small Demos
 - Very small, short demos with basic functionality
+
+## Skeleton
+- This is the base skeleton I currently build my games on top of
