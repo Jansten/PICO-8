@@ -7,9 +7,9 @@ __lua__
 function _init()
  --initial program setup
 
-frame=0 --track what frame we're on
-score=0 --track current game score
-highscore=0 --track high score across one session
+ frame=0 --track what frame we're on
+ score=0 --track current game score
+ highscore=0 --track high score across one session
 
  --set variables for player data
  player_width=5
@@ -57,7 +57,7 @@ function gameinit()
  mode=1
 
  --setting overall variables
-frame=0
+ frame=0
 
  --set variables for player position, middle of the screen
  playerx=64
@@ -104,8 +104,9 @@ function gameupdate()
 
  cls() --clear screen every frame
 
-coords={playerx, playery} --set coordinates for collision
+ coords={playerx, playery} --set coordinates for collision
 
+ --player input, moves player sprite
  if btn(0) then playerx-=player_speed end
  if btn(1) then playerx+=player_speed end
  if btn(2) then playery-=player_speed end
@@ -117,34 +118,39 @@ coords={playerx, playery} --set coordinates for collision
  if playery <= 0 then playery=0 end
  if playery >= 127-player_width then playery=127-player_width end
 
-if (frame % skull_freq == 0) then
- add(skulls, {rnd(128 - skull_size[1]),(- skull_size[2])})
-end
+ --generate array of skulls to be displayed on screen
+ if (frame % skull_freq == 0) then
+  add(skulls, {rnd(128 - skull_size[1]),(- skull_size[2])})
+ end
 
+ --various skul-related logic
  for drop in all(skulls) do
   drop[2] += skull_speed
-   if drop[2] > 128 then
+   if drop[2] > 128 then --delete skull if it moves off screen
     del(skull,drop)
-   elseif collided(
+   elseif collided( --see if player sprite has collided with a skull
    drop, skull_size, coords, player_size
     )
-   then
+   then --game over
      mode=2
   end
  end
 
+
+ --generate array of skulls to be displayed on screen
  if(frame % bomb_freq==0) then
   add(bombs,{rnd(128 - bomb_size[1]),( - bomb_size[2])})
  end
 
+ --various bomb-related logic
  for pickup in all(bombs) do
   pickup[2] += bomb_speed
-   if pickup[2] > 128 then
+   if pickup[2] > 128 then --delete bomb if it moves off screen
     del(bombs,pickup)
-    elseif collided(
+    elseif collided( --see if player sprite has collided with a bomb
        pickup, bomb_size, coords, player_size
      )
-     then
+     then --clear arrays/screen
        skulls={}
        bombs={}
       end
@@ -153,28 +159,31 @@ end
  --for debugging: clear screen, write simple text
  --print("<action> to get game over",10,122,7)
 
-spr(3,playerx,playery)
+ --draw player sprite at the correct coordinates
+ spr(3,playerx,playery)
 
---for debugging only: display the current frame
---print("frame:",0,0,7)
---print(frame,24,0)
+ --for debugging only: display the current frame
+ --print("frame:",0,0,7)
+ --print(frame,24,0)
 
-score=flr(frame/30)
+ score=flr(frame/30)
 
-if highscore <= score then
- highscore = score
-end
+ if highscore <= score then
+  highscore = score
+ end
 
-print("score: ",0,0,7)
-print(score,24,0)
+ print("score: ",0,0,7)
+ print(score,24,0)
 
-print("high score: ",0,6,7)
-print(highscore,44,6)
-
+ print("high score: ",0,6,7)
+ print(highscore,44,6)
+ 
+ --draw skulls on screen
  for drop in all(skulls) do
   spr(0,drop[1],drop[2])
  end
 
+ --draw bombs on screen
  for pickup in all(bombs) do
   spr(2,pickup[1],pickup[2])
  end
