@@ -18,9 +18,9 @@
 - Possibly create music
 - Create player character sprite
 - Create some sort of sprite map for the play field
-- Create and impliment screen-clearing bomb item (sprite has already been created)
 - Change variable names for collided() to make them more generic, as this function is being reused
+- Potential: Picking up a bomb should add 10 points to the score
 
 ## Bugs
-- Player sprite's collision area isn't the exact size of the sprite.
-- Bomb does not respect collision rules, so it does not clear the screen
+- All sprite collision areas aren't the exact size of the sprite.
+- Enemy sprites and bomb sprite occasionally stack on top of other sprites
