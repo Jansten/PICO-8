@@ -25,7 +25,7 @@ highscore=0 --track high score across one session
  skulls={} --skulls to display on screen
 
  --set variables for screen-clearing bomb data
- bomb_freq=25
+ bomb_freq=50
  bomb_speed=1
  bomb_size={5,5}
  bombs={}
@@ -144,7 +144,8 @@ end
        pickup, bomb_size, coords, player_size
      )
      then
-       cls() --clear screen, likely not what i want
+       skulls={}
+       bombs={}
       end
     end
 
