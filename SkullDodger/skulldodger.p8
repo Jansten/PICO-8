@@ -25,7 +25,7 @@ highscore=0 --track high score across one session
  skulls={} --skulls to display on screen
 
  --set variables for screen-clearing bomb data
- bomb_freq=50
+ bomb_freq=100
  bomb_speed=1
  bomb_size={5,5}
  bombs={}
@@ -77,9 +77,9 @@ end
 function titleupdate()
  --draw the title screen
 
-spr(0,38,42) 
-spr(1,57,42)
-spr(0,77,42)
+ spr(0,38,42) 
+ spr(1,57,42)
+ spr(0,77,42)
  print("skull dodger",38,50,8)
  print("by michael \"boston\" hannon",10,56,8)
  print("press <action> button",13,98,12)
@@ -90,7 +90,8 @@ end
 function gameoverupdate()
  --game over functionality
 
-skulls={} --reset number of skulls on screen
+ skulls={} --reset number of skulls on screen
+ bombs={} --reset bombs on screen
 
  cls()
  print("- game over -",30,50,4)
@@ -150,7 +151,7 @@ end
     end
 
  --for debugging: clear screen, write simple text
- print("<action> to get game over",10,122,7)
+ --print("<action> to get game over",10,122,7)
 
 spr(3,playerx,playery)
 
@@ -179,7 +180,7 @@ print(highscore,44,6)
  end
 
  --for debugging: press action to fail game
- if btnp(4) then mode=2 end
+ --if btnp(4) then mode=2 end
 
  frame+=1
 end
