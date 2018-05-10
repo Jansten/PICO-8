@@ -123,7 +123,7 @@ function gameupdate()
   add(skulls, {rnd(128 - skull_size[1]),(- skull_size[2])})
  end
 
- --various skul-related logic
+ --various skull-related logic
  for drop in all(skulls) do
   drop[2] += skull_speed
    if drop[2] > 128 then --delete skull if it moves off screen
